@@ -1,0 +1,605 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/25/2024 8:56:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="FQSERVER"
+  DTS:CreatorName="FQSERVER\fabri"
+  DTS:DTSID="{BEC13B06-2A1D-45EF-B7F6-452AD42F048D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="17418"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{335EC1B7-8E65-46BC-AAFA-29A000EEDC9A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AdventureWorks]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{BEDD9C12-5881-4A12-A053-E1566D97CE87}"
+      DTS:ObjectName="AdventureWorks">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=AdventureWorks2022;Persist Security Info=True;Application Name=SSIS-Package-{BEDD9C12-5881-4A12-A053-E1566D97CE87}localhost.AdventureWorks2022.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGwITdkCBpkae4RtDaI3ktAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABVSr/E0XDYpz3DZUEmZS2iLIfEOOhr/jpyHUGQXkP8JAAAAAAOgAAAAAIAACAAAAD9xsQi0XtnjWLdgZWIFtheoFBcgrGY75QQzSSSHxmA8CAAAACGumMBQrPiF6rx0lYNovACcIJvmUxRi/8NW26zhsFOXUAAAAB1mczJHFefQwJbszD+BR6ZhYcIGY0dB4q8lLJmX7+mx0LKkjSWAxgpDTszgVF+Z3BgtnJzeGkqBWL/w6/u3Sp4</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[STG_Ventas]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{09157283-F592-400A-ADBE-E11E9F1C5989}"
+      DTS:ObjectName="STG_Ventas">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=STG_Ventas;Persist Security Info=True;Application Name=SSIS-Package-{09157283-F592-400A-ADBE-E11E9F1C5989}localhost.STG_Ventas.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGwITdkCBpkae4RtDaI3ktAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABt59U0ohw0vkLVEVNH0nzP4sYWJ/Byz5wZb6vhW344/gAAAAAOgAAAAAIAACAAAACWtdjIRuJrjzMkpYhziBqQKd4GNGSRVk3NPnUFx9ZM9yAAAAB4jiffusij8xUBh6qqDFO8N/qDKsy5Hlm9zW2zYXHfVEAAAAB506iEr9cUXB4bYw7F3M9qTSUMIq/iL4ONX0tbMe8KJFVtaeCZFF95QVMx4IJfpIpMw5mpqiZC8FrwWXtkM//c</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F10CD232-ED02-49EB-BC0E-FD400FC8AC87}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{82B6E115-9317-42DC-9397-2D51B99C7310}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 2"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8E6B3A3B-71D2-41DC-BABD-1A345DDE3F4B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 2"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Mover datos de tabla 1 a tabla 2"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4DCFAB8F-F244-4945-88FC-C4F1689F2C00}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Mover datos de tabla 1 a tabla 2"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="Escritura en Base de datos STG_Ventas"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Departamentos"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[STG_Ventas]"
+                  connectionManagerRefId="Package.ConnectionManagers[STG_Ventas]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input].Columns[DepartmentID]"
+                      cachedDataType="i2"
+                      cachedName="DepartmentID"
+                      externalMetadataColumnId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input].ExternalColumns[DepartmentID]"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].Columns[DepartmentID]" />
+                    <inputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input].Columns[GroupName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="GroupName"
+                      externalMetadataColumnId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input].ExternalColumns[GroupName]"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].Columns[GroupName]" />
+                    <inputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].Columns[ModifiedDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input].ExternalColumns[DepartmentID]"
+                      dataType="i4"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="100"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input].ExternalColumns[GroupName]"
+                      dataType="wstr"
+                      length="100"
+                      name="GroupName" />
+                    <externalMetadataColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Lectura de Base de datos AdventureWorks"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from HumanResources.Department</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"HumanResources"."Department"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[AdventureWorks]"
+                  connectionManagerRefId="Package.ConnectionManagers[AdventureWorks]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].Columns[DepartmentID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[DepartmentID]"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].Columns[DepartmentID]"
+                      name="DepartmentID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].Columns[GroupName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[GroupName]"
+                      length="50"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].Columns[GroupName]"
+                      name="GroupName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[DepartmentID]"
+                      dataType="i2"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[GroupName]"
+                      dataType="wstr"
+                      length="50"
+                      name="GroupName" />
+                    <externalMetadataColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Error Output].Columns[DepartmentID]"
+                      dataType="i2"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Error Output].Columns[DepartmentID]"
+                      name="DepartmentID" />
+                    <outputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Error Output].Columns[GroupName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Error Output].Columns[GroupName]"
+                      name="GroupName" />
+                    <outputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Error Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Mover datos de tabla 1 a tabla 2.Paths[ADO NET Source Output]"
+              endId="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{6482115C-FB41-4081-BCC7-0AA2AF6C3AE0}"
+      DTS:From="Package\Mover datos de tabla 1 a tabla 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{A62C3D28-B410-4C27-98C4-78D34F138351}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Data Flow Task 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D5F721CB-021A-426F-AFB2-35B456ED6ED9}"
+      DTS:From="Package\Data Flow Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Data Flow Task 2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Mover datos de tabla 1 a tabla 2"
+          TopLeft="253,164" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="282,231" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Data Flow Task 1"
+          TopLeft="271,305" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Data Flow Task 2"
+          TopLeft="277,389" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="370.5,206">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11,25"
+              Start="0,0"
+              End="-11,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.5"
+                    Point2="0,12.5"
+                    Point3="-4,12.5" />
+                  <mssgle:LineSegment
+                    End="-7,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7,12.5"
+                    Point2="-11,12.5"
+                    Point3="-11,16.5" />
+                  <mssgle:LineSegment
+                    End="-11,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="356.25,273">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="356,347">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Mover datos de tabla 1 a tabla 2">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="288,42"
+          Id="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks"
+          TopLeft="71,87" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas"
+          TopLeft="104,271" />
+        <EdgeLayout
+          Id="Package\Mover datos de tabla 1 a tabla 2.Paths[ADO NET Source Output]"
+          TopLeft="215,129">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27,142"
+              Start="0,0"
+              End="27,134.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,67"
+                    Point2="0,71"
+                    Point3="4,71" />
+                  <mssgle:LineSegment
+                    End="23,71" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23,71"
+                    Point2="27,71"
+                    Point3="27,75" />
+                  <mssgle:LineSegment
+                    End="27,134.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
