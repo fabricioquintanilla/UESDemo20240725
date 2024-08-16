@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="FQSERVER"
   DTS:CreatorName="FQSERVER\fabri"
-  DTS:DTSID="{BEC13B06-2A1D-45EF-B7F6-452AD42F048D}"
+  DTS:DTSID="{9D767CE0-C993-4C03-9F2B-9FC7CD49A899}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5556.0"
   DTS:LocaleID="17418"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="Tabla_A_Tabla"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{335EC1B7-8E65-46BC-AAFA-29A000EEDC9A}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{2E6D8ED2-7142-4CAC-B1ED-BAED5A97320C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGwITdkCBpkae4RtDaI3ktAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABVSr/E0XDYpz3DZUEmZS2iLIfEOOhr/jpyHUGQXkP8JAAAAAAOgAAAAAIAACAAAAD9xsQi0XtnjWLdgZWIFtheoFBcgrGY75QQzSSSHxmA8CAAAACGumMBQrPiF6rx0lYNovACcIJvmUxRi/8NW26zhsFOXUAAAAB1mczJHFefQwJbszD+BR6ZhYcIGY0dB4q8lLJmX7+mx0LKkjSWAxgpDTszgVF+Z3BgtnJzeGkqBWL/w6/u3Sp4</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGwITdkCBpkae4RtDaI3ktAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA2mVBzvj1CaCj3YhxEFYycHxUjtjkDW3R80h+FcuWlFAAAAAAOgAAAAAIAACAAAADosquBdpsQhtBzO1hfGJY14sHIikHcTQa9M4OREDfVGCAAAAAgKdFkWvPeoG39rTEqcxV/y42yS5qSl/r7uzU8MMSaTUAAAAA4kOr/zM49OZdocpVsUbBll4zPeTh/EvjXfgJ4xCkzqWr7+sBeYY/W/vhWOd9MCMrLeeACmluW6tEvV75li+bC</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,7 +42,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGwITdkCBpkae4RtDaI3ktAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABt59U0ohw0vkLVEVNH0nzP4sYWJ/Byz5wZb6vhW344/gAAAAAOgAAAAAIAACAAAACWtdjIRuJrjzMkpYhziBqQKd4GNGSRVk3NPnUFx9ZM9yAAAAB4jiffusij8xUBh6qqDFO8N/qDKsy5Hlm9zW2zYXHfVEAAAAB506iEr9cUXB4bYw7F3M9qTSUMIq/iL4ONX0tbMe8KJFVtaeCZFF95QVMx4IJfpIpMw5mpqiZC8FrwWXtkM//c</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGwITdkCBpkae4RtDaI3ktAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACAo3x2y/qmX2Obxv7camTCCHRKvau6/Xrm2pf0VK1zyQAAAAAOgAAAAAIAACAAAACNoZ3M6e8O5/T6nQizY6mGcQwTlO4MUaRzHARBjEoMxyAAAABPY1CdAhbb+JEXvwRQZCzCQXQ/ReRQoyRDOw5v1YgNckAAAABvr7E9WNrwJ90SO2PB1Nj0aCh4mOtIWtRKNks+Bhy1yGBWO5XC4JDs57d7OsOnZhEmQj536/jREKbJlEjurmeR</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -439,10 +439,6 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="235,42"
-          Id="Package\Mover datos de tabla 1 a tabla 2"
-          TopLeft="253,164" />
-        <NodeLayout
           Size="155,42"
           Id="Package\Data Flow Task"
           TopLeft="282,231" />
@@ -454,6 +450,10 @@
           Size="164,42"
           Id="Package\Data Flow Task 2"
           TopLeft="277,389" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Mover datos de tabla 1 a tabla 2"
+          TopLeft="253,164" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="370.5,206">
@@ -586,7 +586,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks">
+    design-time-name="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -594,7 +594,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Mover datos de tabla 1 a tabla 2\Escritura en Base de datos STG_Ventas">
+    design-time-name="Package\Mover datos de tabla 1 a tabla 2\Lectura de Base de datos AdventureWorks">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

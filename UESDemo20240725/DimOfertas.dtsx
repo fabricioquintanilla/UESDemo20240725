@@ -1,0 +1,556 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/15/2024 9:47:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="FQSERVER"
+  DTS:CreatorName="FQSERVER\fabri"
+  DTS:DTSID="{D102E62F-0192-4963-9812-52C0AF5F3526}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="17418"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{A1E595D1-D4C1-4500-B0E5-1E5A7CC98459}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.AdventureWorks2022.sa]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{7D89725E-7D10-48BD-A1EE-395603489DF5}"
+      DTS:ObjectName="localhost.AdventureWorks2022.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=AdventureWorks2022;Persist Security Info=True;Application Name=SSIS-Package1-{7D89725E-7D10-48BD-A1EE-395603489DF5}localhost.AdventureWorks2022.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGwITdkCBpkae4RtDaI3ktAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACpvBMlQ1wGu/JT3rXsCCrGt5JiSaeNx3BAov/fjEiOcQAAAAAOgAAAAAIAACAAAAAqjnqzb9XAkx+qZcri8bm8pDexRpgpLrTNyQQyOYrlTiAAAABhOwX7cuLeZFz7oU79I9ZPAIaoUCk0l/1l/ghoejpC7kAAAABzeP/lDyUxtw4CUr0jhZk4V2L091+r2HY5BxrSlHVk1VHiN3LhN/SkKeJ8uGhCFj+JbfvbHxUz9c/O6pEqRV7I</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.VENTASDW.sa]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{021ADBED-59B5-4147-9F9C-8524BE82736C}"
+      DTS:ObjectName="localhost.VENTASDW.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=VENTASDW;Persist Security Info=True;Application Name=SSIS-Package1-{021ADBED-59B5-4147-9F9C-8524BE82736C}localhost.VENTASDW.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAGwITdkCBpkae4RtDaI3ktAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACYahiZZXSK6vMJGYVVg8xJ61TG+dfQmEZIp4bOHXwIWQAAAAAOgAAAAAIAACAAAACke9OCuY1NpXU6nZEc6bEmRsTMwPPrvseW7JocNjelvSAAAAADwyjV46xamt69IJ1rg0K/Z6/l+x/79GFmyG39EM07I0AAAABBXKf4AC+sJgjkJmB0eBF8wOi5Hbn3DZbruEkRzTyNXc2t4tUPegE3VcGJ9Clsu1HfsTG7dX40IBGqaSxW/3IE</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Limpiar DimOferta"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F069091C-D46F-4C6F-8BB9-09102C2A7654}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Limpiar DimOferta"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{021ADBED-59B5-4147-9F9C-8524BE82736C}"
+          SQLTask:SqlStatementSource="--Limpiamos la dimension&#xA;delete DimOferta;&#xA;--Reiniciamos la clave autonumerica&#xA;dbcc checkident('DimOferta',RESEED,0)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Llenar DimOferta"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4AD39945-85AE-49BC-BE16-C0687AE403CF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Llenar DimOferta"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Llenar DimOferta\ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DimOferta"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Llenar DimOferta\ADO NET Destination.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.VENTASDW.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.VENTASDW.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Descripcion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Descripcion"
+                      externalMetadataColumnId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Descripcion]"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[Descripcion]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SpecialOfferID]"
+                      cachedDataType="i4"
+                      cachedName="SpecialOfferID"
+                      externalMetadataColumnId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OfertaID]"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[SpecialOfferID]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[DiscountPct]"
+                      cachedDataType="numeric"
+                      cachedName="DiscountPct"
+                      cachedPrecision="20"
+                      cachedScale="10"
+                      externalMetadataColumnId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Porcentaje]"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountPct]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Tipo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Tipo"
+                      externalMetadataColumnId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[TipoOferta]"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[Tipo]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Category"
+                      externalMetadataColumnId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CategoriaOferta]"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[Category]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OfertaKey]"
+                      dataType="i4"
+                      name="OfertaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[OfertaID]"
+                      dataType="i4"
+                      name="OfertaID" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Porcentaje]"
+                      dataType="r8"
+                      name="Porcentaje" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[TipoOferta]"
+                      dataType="wstr"
+                      length="50"
+                      name="TipoOferta" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CategoriaOferta]"
+                      dataType="wstr"
+                      length="50"
+                      name="CategoriaOferta" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      name="Descripcion" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimOferta\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOferta\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOferta\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Llenar DimOferta\ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Source"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select SpecialOfferID, [Description] as Descripcion,
+DiscountPct, [Type] as Tipo, Category
+from sales.SpecialOffer</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Llenar DimOferta\ADO NET Source.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.AdventureWorks2022.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.AdventureWorks2022.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[SpecialOfferID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SpecialOfferID]"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[SpecialOfferID]"
+                      name="SpecialOfferID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[Descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Descripcion]"
+                      length="255"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[Descripcion]"
+                      name="Descripcion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountPct]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DiscountPct]"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountPct]"
+                      name="DiscountPct"
+                      precision="20"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[Tipo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Tipo]"
+                      length="50"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[Tipo]"
+                      name="Tipo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[Category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Category]"
+                      length="50"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].Columns[Category]"
+                      name="Category"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SpecialOfferID]"
+                      dataType="i4"
+                      name="SpecialOfferID" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      name="Descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DiscountPct]"
+                      dataType="numeric"
+                      name="DiscountPct"
+                      precision="20"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Tipo]"
+                      dataType="wstr"
+                      length="50"
+                      name="Tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Category]"
+                      dataType="wstr"
+                      length="50"
+                      name="Category" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SpecialOfferID]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SpecialOfferID]"
+                      name="SpecialOfferID" />
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Descripcion]"
+                      name="Descripcion" />
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DiscountPct]"
+                      dataType="numeric"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DiscountPct]"
+                      name="DiscountPct"
+                      precision="20"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Tipo]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Tipo]"
+                      name="Tipo" />
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Category]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Category]"
+                      name="Category" />
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Llenar DimOferta.Paths[ADO NET Source Output]"
+              endId="Package\Llenar DimOferta\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\Llenar DimOferta\ADO NET Source.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7AB4879E-1D0B-47EC-A839-51B790188F14}"
+      DTS:From="Package\Limpiar DimOferta"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Llenar DimOferta" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Llenar DimOferta"
+          TopLeft="195,229" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Limpiar DimOferta"
+          TopLeft="151,132" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="236,174">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40.5,55"
+              Start="0,0"
+              End="40.5,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5"
+                    Point2="0,27.5"
+                    Point3="4,27.5" />
+                  <mssgle:LineSegment
+                    End="36.5,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.5,27.5"
+                    Point2="40.5,27.5"
+                    Point3="40.5,31.5" />
+                  <mssgle:LineSegment
+                    End="40.5,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Llenar DimOferta">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Llenar DimOferta\ADO NET Source"
+          TopLeft="233,183" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Llenar DimOferta\ADO NET Destination"
+          TopLeft="401,373" />
+        <EdgeLayout
+          Id="Package\Llenar DimOferta.Paths[ADO NET Source Output]"
+          TopLeft="316,225">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="178,148"
+              Start="0,0"
+              End="178,140.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,70"
+                    Point2="0,74"
+                    Point3="4,74" />
+                  <mssgle:LineSegment
+                    End="174,74" />
+                  <mssgle:CubicBezierSegment
+                    Point1="174,74"
+                    Point2="178,74"
+                    Point3="178,78" />
+                  <mssgle:LineSegment
+                    End="178,140.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar DimOferta\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar DimOferta\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
