@@ -9,7 +9,9 @@ create table DimClientes(
 ClienteKey int identity(1,1) primary key,
 ClienteID int not null,
 TipoPersona varchar(100) not null,
-Nombre varchar(100) not null)
+Nombre varchar(100) not null,
+FechaActualizacion datetime not null default getdate(),
+Activo bit not null default 1)
 go
 
 create table DimProducto(
@@ -22,7 +24,9 @@ PrecioLista float not null,
 LineaProducto varchar(100) not null,
 CategoriaProducto varchar(100) not null,
 SubcategiriaProducto varchar(100) not null,
-NombreModelo varchar(100))
+NombreModelo varchar(100),
+FechaActualizacion datetime not null default getdate(),
+Activo bit not null default 1)
 go
 
 create table DimVendedor(
@@ -62,7 +66,9 @@ ClienteKey int not null foreign key references DimClientes(ClienteKey),
 ProductoKey int not null foreign key references DimProducto(ProductoKey),
 VendedorKey int not null foreign key references DimVendedor(VendedorKey),
 TerritorioVentaKey int not null foreign key references DimTerritorioVentas(TerritorioVentasKey),
-TiempoKey int not null foreign key references DimTiempo(TiempoKey),
+TiempoEntregaKey int not null foreign key references DimTiempo(TiempoKey),
+TiempoOrdenKey int not null foreign key references DimTiempo(TiempoKey),
+TiempoEnvioKey int not null foreign key references DimTiempo(TiempoKey),
 OfertaKey int not null foreign key references DimOferta(OfertaKey),
 Cantidad float not null default (0),
 PrecioUnitario float not null default(0),
